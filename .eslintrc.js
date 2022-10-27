@@ -15,7 +15,6 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    quotes: 'off',
     'linebreak-style': [0, 'error', 'windows'],
     'prettier/prettier': [
       'warn',
@@ -24,12 +23,17 @@ module.exports = {
       },
     ],
     'vue/multi-word-component-names': 'off',
-    // [
-    //   'error',
-    //   {
-    //     ignore: ['Index'],
-    //   },
-    // ],
+    // 禁止使用分号
+    semi: ['error', 'never'],
+    // 使用单引号
+    quotes: 0,
+    // quotes: ['error', 'single'],
+    // 末尾逗号
+    'comma-dangle': ['error', 'only-multiline'],
+    // 对象中打印空格
+    'object-curly-spacing': ['error', 'always'],
+    // 箭头函数参数括号
+    'arrow-parens': ['error', 'as-needed'],
   },
   overrides: [
     {
@@ -42,4 +46,4 @@ module.exports = {
       },
     },
   ],
-};
+}
