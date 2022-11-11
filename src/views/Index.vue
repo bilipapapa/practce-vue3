@@ -2,10 +2,8 @@
   <div></div>
 </template>
 
-<script>
-export default {
-  name: 'Index',
-}
+<script setup lang="ts">
+
 </script>
 
 <style></style>

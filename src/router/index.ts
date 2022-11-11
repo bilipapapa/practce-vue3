@@ -4,9 +4,19 @@ import Index from '../views/Index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
+    name: 'Index',
     component: Index,
-    children: [],
+    children: [
+      {
+        path: '/index',
+        name: 'index',
+        component: () => import('../views/Index.vue'),
+        meta: {
+          title: '首页',
+          KeepAlive: true,
+        },
+      },
+    ],
   },
 ]
 

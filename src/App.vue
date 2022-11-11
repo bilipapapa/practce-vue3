@@ -1,8 +1,32 @@
 <template>
-  <el-config-provider>
-    <router-view />
-  </el-config-provider>
+  <transition>
+    <el-config-provider>
+      <keep-alive>
+        <router-view v-if="state.route" />
+      </keep-alive>
+      <router-view v-if="!state.route" />
+    </el-config-provider>
+  </transition>
 </template>
+
+<script setup lang="ts">
+import { watch, reactive } from 'vue'
+import { useRoute } from 'vue-router'
+import Header from '@/components/Header/index.vue'
+import SideBar from '@/components/SideBar/index.vue'
+const state = reactive({
+  route: useRoute(),
+})
+watch(
+  () => state.route,
+  val => {
+    console.log(val)
+  },
+  {
+    immediate: true,
+  }
+)
+</script>
 
 <style lang="scss">
 #app {
